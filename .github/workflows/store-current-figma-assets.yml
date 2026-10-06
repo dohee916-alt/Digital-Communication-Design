@@ -1,0 +1,88 @@
+name: Store exact current Figma source assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/store-current-figma-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  store:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact source files referenced by current Figma
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/figma
+
+          # Reaction screen
+          curl -fL --retry 3 -o assets/figma/reaction-button.png "https://www.figma.com/api/mcp/asset/a9526d8a-f4bc-4041-aa15-0372aa3402f0/80cdc.png"
+          curl -fL --retry 3 -o assets/figma/reaction-liquid.png "https://www.figma.com/api/mcp/asset/a9526d8a-f4bc-4041-aa15-0372aa3402f0/eab17.png"
+          curl -fL --retry 3 -o assets/figma/reaction-body.png "https://www.figma.com/api/mcp/asset/a9526d8a-f4bc-4041-aa15-0372aa3402f0/b841b.png"
+
+          # Input screen
+          curl -fL --retry 3 -o assets/figma/this.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/30a70.png"
+          curl -fL --retry 3 -o assets/figma/glp.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/c428d.png"
+          curl -fL --retry 3 -o assets/figma/chicken.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/0c863.png"
+          curl -fL --retry 3 -o assets/figma/cola.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/8801d.png"
+          curl -fL --retry 3 -o assets/figma/egg.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/946cd.png"
+          curl -fL --retry 3 -o assets/figma/water.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/3eff0.png"
+          curl -fL --retry 3 -o assets/figma/finish.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/b9328.png"
+          curl -fL --retry 3 -o assets/figma/donut.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/caab5.png"
+          curl -fL --retry 3 -o assets/figma/salad.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/73cb7.png"
+          curl -fL --retry 3 -o assets/figma/tteok.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/0fd2b.png"
+          curl -fL --retry 3 -o assets/figma/dumbbell.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/40ff7.png"
+          curl -fL --retry 3 -o assets/figma/shoe.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/03370.png"
+          curl -fL --retry 3 -o assets/figma/fixed1.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/4bc33.png"
+          curl -fL --retry 3 -o assets/figma/fixed2.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/6da11.png"
+          curl -fL --retry 3 -o assets/figma/fixed3.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/5ebae.png"
+          curl -fL --retry 3 -o assets/figma/fixed4.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/95cfe.png"
+          curl -fL --retry 3 -o assets/figma/fixed5.png "https://www.figma.com/api/mcp/asset/5933517b-d93e-47a6-aec3-776d88f2655d/567a7.png"
+
+          # Standard output screen: exact current Figma source files
+          curl -fL --retry 3 -o assets/figma/blister-lower.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/6f77b.png"
+          curl -fL --retry 3 -o assets/figma/output-this.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/dc56f.png"
+          curl -fL --retry 3 -o assets/figma/out-fixed2.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/6da11.png"
+          curl -fL --retry 3 -o assets/figma/out-fixed5.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/567a7.png"
+          curl -fL --retry 3 -o assets/figma/out-fixed1.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/4bc33.png"
+          curl -fL --retry 3 -o assets/figma/out-fixed3.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/5ebae.png"
+          curl -fL --retry 3 -o assets/figma/out-fixed4.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/95cfe.png"
+          curl -fL --retry 3 -o assets/figma/blister-upper.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/12e04.png"
+          curl -fL --retry 3 -o assets/figma/retry.png "https://www.figma.com/api/mcp/asset/43364899-c773-41d1-9b53-998983443f33/b9328.png"
+
+          # Body variations: exact source images from their Figma image fills
+          curl -fL --retry 3 -o assets/figma/w1.png "https://www.figma.com/api/mcp/asset/ffa67490-347e-4e5f-8077-159ce94b8d5c"
+          curl -fL --retry 3 -o assets/figma/w2.png "https://www.figma.com/api/mcp/asset/45f51235-9a22-4931-8074-222b3e86f7b7"
+          curl -fL --retry 3 -o assets/figma/w3.png "https://www.figma.com/api/mcp/asset/40faa209-3dce-4cff-a20c-140109dfe2f4"
+          curl -fL --retry 3 -o assets/figma/w4.png "https://www.figma.com/api/mcp/asset/1afc9af3-f286-4c89-b6fe-5f4ee269b262"
+          curl -fL --retry 3 -o assets/figma/m1.png "https://www.figma.com/api/mcp/asset/182be79e-533d-4ddd-9d81-68bc54429228"
+          curl -fL --retry 3 -o assets/figma/m2.png "https://www.figma.com/api/mcp/asset/28a3a06c-34ad-4d07-9165-7c2526c825b2"
+          curl -fL --retry 3 -o assets/figma/w5.png "https://www.figma.com/api/mcp/asset/4f228d9a-a1e7-45bf-900f-367015f56188"
+          cp assets/figma/w5.png assets/figma/m3.png
+          curl -fL --retry 3 -o assets/figma/m4.png "https://www.figma.com/api/mcp/asset/8a605c54-fc7c-42e4-a6cc-c21998c85adf"
+          curl -fL --retry 3 -o assets/figma/m5.png "https://www.figma.com/api/mcp/asset/17a5394a-4b17-4eee-aed5-980dbaa6bd40"
+          curl -fL --retry 3 -o assets/figma/m6.png "https://www.figma.com/api/mcp/asset/94fc110f-4a3c-498b-939d-c243f5e0e405"
+          curl -fL --retry 3 -o assets/figma/w6.png "https://www.figma.com/api/mcp/asset/1067a024-77e2-446d-9077-3cb22c9c92ce"
+          curl -fL --retry 3 -o assets/figma/w7.png "https://www.figma.com/api/mcp/asset/e33e9420-a744-4761-904e-a4fb6066bb7a"
+          curl -fL --retry 3 -o assets/figma/w8.png "https://www.figma.com/api/mcp/asset/a1c04dac-ddfd-4fc3-b380-51fe30bd52ea"
+          curl -fL --retry 3 -o assets/figma/w9.png "https://www.figma.com/api/mcp/asset/3c110128-f0d7-4a0a-9052-68bd3551ef7e"
+          curl -fL --retry 3 -o assets/figma/w10.png "https://www.figma.com/api/mcp/asset/f0cde810-c381-4a88-bb0c-026fdf3d03c8"
+
+          # Validate the files, especially the transparent button source.
+          file assets/figma/*.png
+          file assets/figma/retry.png | grep -q "RGBA"
+          file assets/figma/finish.png | grep -q "RGBA"
+
+      - name: Commit exact Figma source images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/figma
+          git diff --cached --quiet && exit 0
+          git commit -m "Store exact current Figma source images"
+          git push
